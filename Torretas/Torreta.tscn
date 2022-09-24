@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/towerDefense_tilesheet.png" type="Texture" id=1]
+[ext_resource path="res://gun.gd" type="Script" id=2]
+[ext_resource path="res://gunless.gd" type="Script" id=3]
+[ext_resource path="res://base.gd" type="Script" id=4]
+[ext_resource path="res://fires.gd" type="Script" id=5]
+
+[node name="Torreta" type="Node2D"]
+
+[node name="base" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1222, 453, 53, 53 )
+script = ExtResource( 4 )
+
+[node name="gunless" type="Sprite" parent="base"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1353, 585, 47, 41 )
+script = ExtResource( 3 )
+
+[node name="gun" type="Sprite" parent="base"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1353, 521, 47, 41 )
+script = ExtResource( 2 )
+
+[node name="puntero" type="Position2D" parent="base/gun"]
+position = Vector2( -8.9, -50 )
+
+[node name="puntero2" type="Position2D" parent="base/gun"]
+position = Vector2( 8.9, -50 )
+
+[node name="fires" type="Container" parent="base/gun"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="fire" type="Sprite" parent="base/gun/fires"]
+position = Vector2( -9, 24 )
+rotation = -3.14159
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1369, 780, 14, 40 )
+
+[node name="fire2" type="Sprite" parent="base/gun/fires"]
+position = Vector2( 9, 24 )
+rotation = -3.14159
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1369, 780, 14, 40 )
